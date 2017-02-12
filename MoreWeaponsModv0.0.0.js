@@ -11,6 +11,8 @@
 
 const MOD_VERSION = "0.0.1";
 
+var newWeapons = [];
+
 function newItem(id, texture, name, stacksize, mxDmg, isTool) {
 	ModPE.setItem(id, texture, 0, name, stacksize);
 	if (isTool != 'undefined') {
@@ -21,10 +23,12 @@ function newItem(id, texture, name, stacksize, mxDmg, isTool) {
 	}
 }
 
-function newSwordType(id, texture, name, mxDmg, dmgDealt) {
+function newMeleeWeapon(id, texture, name, mxDmg, dmgDealt) {
 	newItem(id, texture, name, 1, mxDmg, true);
 	this.id = id;
 	this.name = name;
 	this.durability = mxDmg;
 	this.damage = dmgDealt;
+	newWeapons.push(this);
 }
+
